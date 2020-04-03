@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpack1</title>
+    <link rel="stylesheet" href="/css/fa/css/all.css">
+    <link rel="stylesheet" href="/css/b4/bootstrap.css">
+
+</head>
+<body class="gradient1">
+
+  <nav class="navbar container navbar-expand-lg navbar-light" style="background-color: gray;">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <section class="container px-0 mt-4">
+    <div class="row">
+      <div class="col-5">
+
+        <section class="card border-dark">
+
+          <form class="m-4" enctype="multipart/form-data" id="productform" >
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="Producto">Producto</label>
+                <input type="text" class="form-control" id="Producto">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="Marca">Marca</label>
+                <input type="text" class="form-control" id="Marca">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="Descripcion">Descripcion</label>
+              <textarea type="text" class="form-control" id="Descripcion" rows="2"></textarea>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <label for="Modelo">Modelo</label>
+                <input type="text" class="form-control" id="Modelo">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="Precio">Precio</label>
+                <input type="text" class="form-control" id="Precio">
+              </div>
+            </div>
+            <div class="form-group ">
+              <label for="Imagen">Imagen</label>
+              <div class="input-group mb-3 ">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupFileAddon01">Cargar</span>
+                </div>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="inputGroupFile01" accept=".jpg, .png" required>
+                  <label class="custom-file-label" for="inputGroupFile01" aria-describedby="inputGroupFileAddon01">Selecciona una imagen...</label>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-outline-dark btn-lg btn-block mt-5">Guardar</button>
+          </form>
+
+        </section>
+
+
+      </div>
+      <div class="col-7">
+
+        <section>
+          <div class="row" id="productos">
+
+          </div>
+        </section>
+
+
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
