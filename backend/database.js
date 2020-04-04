@@ -7,5 +7,5 @@ mongoose.connect(MONGODB_URI,{             //Utilizo connect con la URL, si la t
   useUnifiedTopology: true,
   useFindAndModify: false 
 }).catch(function (err) { console.log('error',err.message)})   //Mediante promesa si regresa un error lo imprime
-  .then(function (db) { console.log('DBconnected') });         //En caso contrario imprime un mensaje
+  .then(function (db) { if(db){console.log('DB connected')} });         //En caso contrario imprime un mensaje
   

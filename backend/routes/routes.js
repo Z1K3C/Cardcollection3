@@ -3,13 +3,13 @@ const router = express.Router();                          //Utilizo el motodo ro
 const moment = require('moment');  
 
 const path = require('path');
-const { unlink } = require('fs-extra');
+const { remove } = require('fs-extra');
 
 const Product = require('../schema.js');
 
 router.get('/all', async (req, res) => {
     const items = await Product.find().sort('-_id');
-    res.json(items);
+    res.json({'message': 'Productos encontrados','items': items});
 });
 
 router.post('/add', async (req, res) => {
@@ -22,9 +22,29 @@ router.post('/add', async (req, res) => {
     newItem.filename = req.file.filename;
   }
   await newItem.save();
-  //res.json({'message': 'Book Saved'});
   const items = await Product.find().sort('-_id');
-  res.json({'message': 'Book Saved','items': items});
+  res.json({'message': 'Producto salvado','items': items});
+});
+
+router.get('/edit/:id', async (req, res) => {
+  const productONE = await Product.findById(req.params.id);
+  res.json({'message': 'Producto a editar: ' + productONE.producto,'items': productONE});
+});
+
+router.post('/edited', async (req, res) => {
+  const { producto, marca, descripcion, modelo, precio } = req.body;
+  const modified_at = moment().format('LLL');
+  let items;
+  await Product.findByIdAndUpdate(req.body.id, { producto, marca, descripcion, modelo, precio, modified_at });
+  if(req.file != undefined){
+    items = await Product.findById(req.body.id);
+    await remove(path.resolve('./public/img/' + items.filename));
+    const imagePath = req.file.path;
+    const filename = req.file.filename;
+    await Product.findByIdAndUpdate(req.body.id, { imagePath, filename });
+  }
+  items = await Product.findById(req.body.id);
+  res.json({'message': 'Producto actualizado','items': items});
 });
 
 router.delete('/items/:id', async (req, res) => {
